@@ -1,14 +1,15 @@
 import React,{useEffect} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+
 import { fetchApi } from '../redux/UsersApiSlice';
-import { rootReducer } from '../redux/store';
+import { useAppDispatch,useAppSelector } from '../redux/hooks';
+
 
 const UsersApi = () => {
-    const users=useSelector((state:rootReducer)=>state.user1.users);
-    const dispatch=useDispatch();
+    const users=useAppSelector(state=>state.user1.users);
+    const dispatch=useAppDispatch();
     console.log(users);
     useEffect(()=>{
-        dispatch(fetchApi() as any)
+        dispatch(fetchApi())
     },[])
   return (
     <div>UsersApi</div>
