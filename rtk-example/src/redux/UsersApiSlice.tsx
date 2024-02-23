@@ -19,16 +19,16 @@ const initialState:InitialState={
 }
 
 export const fetchApi=createAsyncThunk("fetch/api",async()=>{
-       return fetch("https://jsonplaceholder.typicode.com/users").then
-       (res=>res.json())
-    // try{
-    //     let res=await fetch("https://jsonplaceholder.typicode.com/users");
-    //     let data=await res.json();
-    //     return data;
-    // }
-    // catch(error:any){
-    //     throw new error;
-    // }
+    //    return fetch("https://jsonplaceholder.typicode.com/users").then
+    //    (res=>res.json())
+    try{
+        let res=await fetch("https://jsonplaceholder.typicode.com/users");
+        let data=await res.json();
+        return data;
+    }
+    catch(error:any){
+        throw new error;
+    }
 })
 
 const UsersApiSlice=createSlice({
