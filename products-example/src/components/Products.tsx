@@ -25,7 +25,7 @@ const Products = () => {
             }}>Add</button>
             <button onClick={()=>{
               dispatch(removeFromCart(product.id))
-            }}>Delete</button>
+            }}>Remove</button>
           </div>
         ))}
       </div>
