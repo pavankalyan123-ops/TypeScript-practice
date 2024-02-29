@@ -20,7 +20,7 @@ const Users = () => {
                 setId(undefined);
             }else{
             dispatch(addUser(input));
-            setInput('')
+            setInput('');
             }
         }}>{id===undefined?"Add":"update"}</button>
         {users.map((user,index)=>(
