@@ -1,16 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAddContactMutation } from "../services/contactsApi";
 
-const AddContact = () => {
+interface ContactDetails {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface AddContactProps {
+  editContact?: ContactDetails; // Make editContact prop optional
+}
+
+const AddContact: React.FC<AddContactProps> = ({ editContact }) => {
   const [details, setDetails] = useState<{
     id: string;
     name: string;
     email: string;
   }>({
-    id: "9",
-    name: "",
-    email: "",
+    id: editContact?.id ?? "9",
+    name: editContact?.name ?? "",
+    email: editContact?.email ?? "",
   });
+  console.log("details", details);
+  useEffect(() => {
+    setDetails({
+      id: editContact?.id ?? "9",
+      name: editContact?.name ?? "",
+      email: editContact?.email ?? "",
+    });
+  }, [editContact]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
     setDetails((prev) => {
@@ -20,7 +39,7 @@ const AddContact = () => {
   };
 
   const [addContact] = useAddContactMutation();
-  console.log(addContact);
+
   const handleAdd = async () => {
     await addContact(details);
     setDetails({ id: "10", name: "", email: "" });
