@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useAddContactMutation } from "../services/contactsApi";
+import {
+  useAddContactMutation,
+  useUpdateContactMutation,
+} from "../services/contactsApi";
 
 interface ContactDetails {
   id: string;
@@ -39,10 +42,17 @@ const AddContact: React.FC<AddContactProps> = ({ editContact }) => {
   };
 
   const [addContact] = useAddContactMutation();
+  const [updateContact] = useUpdateContactMutation();
 
   const handleAdd = async () => {
+    // if (editContact) {
+    //   const { id, ...rest } = details;
+    //   await updateContact({ id, ...rest });
+    //   setDetails({ id: "10", name: "", email: "" });
+    // } else {
     await addContact(details);
     setDetails({ id: "10", name: "", email: "" });
+    //}
   };
   return (
     <div>
@@ -61,7 +71,9 @@ const AddContact: React.FC<AddContactProps> = ({ editContact }) => {
         placeholder="Enter you Email"
         onChange={handleChange}
       />
-      <button onClick={handleAdd}>Add Contact</button>
+      <button onClick={handleAdd}>
+        {editContact ? "Update Contact" : "Add Contact"}
+      </button>
     </div>
   );
 };
