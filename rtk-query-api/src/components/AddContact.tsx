@@ -14,6 +14,7 @@ interface AddContactProps {
   editContact?: ContactDetails; // Make editContact prop optional
 }
 
+//adding props in the below code
 const AddContact: React.FC<AddContactProps> = ({ editContact }) => {
   const [details, setDetails] = useState<{
     id: string;
