@@ -8,3 +8,5 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(contactsApi.middleware),
 });
+
+//did not add rootState
