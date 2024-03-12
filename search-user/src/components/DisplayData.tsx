@@ -7,7 +7,7 @@ const DisplayData = () => {
   return (
     <div>
       <h3>users List is:</h3>
-      <table>
+      <table style={{ border: "1px solid black" }}>
         <th>S.No</th>
         <th>Name</th>
         <th>Email</th>
