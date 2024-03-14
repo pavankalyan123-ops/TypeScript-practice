@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filteredArray } from "../redux/UserSlice";
+import { setInputValue } from "../redux/InputSlice";
+import type { RootState } from "../redux/store";
 
 const Navbar = () => {
-  const [input, setInput] = useState<string>("");
+  //const [input, setInput] = useState<string>("");
+  const { placeholder, inputValue } = useSelector(
+    (state: RootState) => state.input
+  );
   const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+    //setInput(e.target.value);
+    dispatch(setInputValue(e.target.value));
   };
   useEffect(() => {
-    dispatch(filteredArray(input));
-  }, [input]);
+    dispatch(filteredArray(inputValue));
+  }, [inputValue]);
   return (
     <div>
       <div
@@ -28,8 +34,8 @@ const Navbar = () => {
         <div style={{ height: "100px", width: "100px" }}>
           <input
             type="text"
-            placeholder="Search user"
-            value={input}
+            placeholder={placeholder}
+            value={inputValue}
             onChange={handleChange}
           />
         </div>
