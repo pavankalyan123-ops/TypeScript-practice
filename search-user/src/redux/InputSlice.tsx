@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface InputTypes {
   placeholder: string;
   inputValue: string;
+  checkboxValue: string[];
 }
 
 const initialState: InputTypes = {
   placeholder: "...type to search",
   inputValue: "",
+  checkboxValue: [],
 };
 
 const InputSlice = createSlice({
