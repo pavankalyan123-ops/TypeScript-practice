@@ -19,8 +19,17 @@ const InputSlice = createSlice({
     setInputValue: (state, action: PayloadAction<string>) => {
       state.inputValue = action.payload;
     },
+    setSelectedValue: (state, action: PayloadAction<string>) => {
+      if (state.checkboxValue.includes(action.payload)) {
+        state.checkboxValue = state.checkboxValue.filter(
+          (c) => c !== action.payload
+        );
+      } else {
+        state.checkboxValue.push(action.payload);
+      }
+    },
   },
 });
 
-export const { setInputValue } = InputSlice.actions;
+export const { setInputValue, setSelectedValue } = InputSlice.actions;
 export default InputSlice.reducer;
