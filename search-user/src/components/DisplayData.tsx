@@ -10,6 +10,7 @@ const DisplayData = () => {
   const handleCheck = (name: string) => {
     dispatch(setSelectedValue(name));
   };
+  const handleDelete = (id: number) => {};
   return (
     <div>
       <h3>users List is:</h3>
@@ -34,7 +35,9 @@ const DisplayData = () => {
             <td>{user.email}</td>
             <td>{user.age}</td>
             <td>
-              {checkboxValue.includes(user.name) && <button>Delete</button>}
+              {checkboxValue.includes(user.name) && (
+                <button onClick={() => handleDelete(user.id)}>Delete</button>
+              )}
             </td>
           </tr>
         ))}
