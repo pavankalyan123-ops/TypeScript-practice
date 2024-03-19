@@ -28,6 +28,9 @@ const UserSlice = createSlice({
         state.filteredData = state.data;
       }
     },
+    removeUser: (state, action: PayloadAction<number>) => {
+      state.data.splice(1, action.payload);
+    },
   },
 });
 
