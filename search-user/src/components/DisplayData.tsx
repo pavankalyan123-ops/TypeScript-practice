@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { setSelectedValue } from "../redux/InputSlice";
+import { removeUser } from "../redux/UserSlice";
 
 const DisplayData = () => {
   const usersList = useSelector((state: RootState) => state.users.filteredData);
@@ -10,7 +11,9 @@ const DisplayData = () => {
   const handleCheck = (name: string) => {
     dispatch(setSelectedValue(name));
   };
-  const handleDelete = (id: number) => {};
+  const handleDelete = (id: number) => {
+    dispatch(removeUser(id));
+  };
   return (
     <div>
       <h3>users List is:</h3>

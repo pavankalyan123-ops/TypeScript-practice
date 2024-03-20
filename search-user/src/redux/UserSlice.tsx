@@ -34,5 +34,5 @@ const UserSlice = createSlice({
   },
 });
 
-export const { filteredArray } = UserSlice.actions;
+export const { filteredArray, removeUser } = UserSlice.actions;
 export default UserSlice.reducer;
