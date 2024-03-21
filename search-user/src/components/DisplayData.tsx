@@ -15,7 +15,7 @@ const DisplayData = () => {
     dispatch(removeUser(id));
   };
   return (
-    <div>
+    <div style={{ marginLeft: "100px" }}>
       <h3>users List is:</h3>
       <table style={{ border: "1px solid black" }}>
         <th>---</th>
