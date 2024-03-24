@@ -29,7 +29,7 @@ const Navbar = () => {
         }}
       >
         <div>Home</div>
-        <div>About</div>
+        <div>Projects</div>
         <div>Contact</div>
         <div style={{ height: "100px", width: "100px" }}>
           <input
